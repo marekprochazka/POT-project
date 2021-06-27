@@ -3,13 +3,7 @@ module.exports = {
     outputDir: '../backend/static/dist',
     indexPath: '../../templates/base-vue.html', // relative to outputDir!
 
-    css: {
-        loaderOptions: {
-            sass: {
-                prependData: '@import "@/styles/_entry.scss";'
-            },
-        },
-    },
+
 
     chainWebpack: config => {
     /*
