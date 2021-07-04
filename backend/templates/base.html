@@ -1,3 +1,4 @@
+{% load static %}
 {% block html %}
 <!doctype html>
 <html {% block html_tag_attributes %}{% endblock %}>
@@ -6,7 +7,7 @@
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <!-- <link rel="icon" href="favicon.ico"> -->
+        <link rel="icon" href="{% static 'favicon.ico' %}">
         <title>POT</title>
         {% endblock %}
     </head>

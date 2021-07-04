@@ -1,0 +1,18 @@
+<template>
+  <img :src="iconRoute" alt="icon">
+</template>
+
+<script lang="ts">
+import { defineComponent } from 'vue';
+
+export default defineComponent({
+  name:'vue-icon',
+  props:{iconType:{type:String, required:true}},
+  computed: {
+    iconRoute() {
+      return require(`@/assets/icons/${this.iconType}.svg`)
+    }
+  }
+})
+
+</script>
