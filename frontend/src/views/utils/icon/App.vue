@@ -9,7 +9,7 @@ export default defineComponent({
   name:'vue-icon',
   props:{iconType:{type:String, required:true}},
   computed: {
-    iconRoute() {
+    iconRoute(): string {
       return require(`@/assets/icons/${this.iconType}.svg`)
     }
   }
