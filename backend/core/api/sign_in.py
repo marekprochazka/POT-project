@@ -3,7 +3,6 @@ from core.serializers.user import UserSerializer
 from rest_framework.response import Response
 from rest_framework import status
 from django.contrib.auth.models import User
-from django.contrib.auth.hashers import make_password
 from django.db.utils import IntegrityError
 
 
@@ -16,7 +15,7 @@ class SignInView(APIView):
                 if serializer.data['password'] == serializer.data['confirm']:
                     user = User.objects.create_user(username=serializer.data['username'],
                                                     email=serializer.data['username'],
-                                                    password=make_password(serializer.data['password']))
+                                                    password=serializer.data['password'])
                     user.first_name = serializer.data['fullname']
                     user.save()
                     return Response('Sucess!', status=status.HTTP_200_OK)
