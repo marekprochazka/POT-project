@@ -6,4 +6,4 @@ from django.contrib.auth.models import User
 
 @receiver(post_save, sender=User)
 def create_person_action(sender, instance, created, **kwargs):
-    pass
+    Person.create_person_from_user(instance)
