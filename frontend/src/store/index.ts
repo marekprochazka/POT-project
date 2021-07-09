@@ -23,6 +23,9 @@ export default createStore({
   getters: {
     getAccessToken: state => {
       return state.accessToken
+    },
+    isLoggedIn: state => {
+      return state.accessToken != null
     }
   },
   modules: {
