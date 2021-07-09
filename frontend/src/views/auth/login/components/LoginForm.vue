@@ -9,6 +9,7 @@
       <input v-model="password" type="password" class="form-control form__input" id="loginForm__PasswordInput" placeholder="Password">
     </div>
     <button type="submit" class="form__button mt-20">Login</button>
+    <h3 v-if="error" class="form__error">Invalid parameters! TODO styling</h3>
   </form>
 </template>
 
@@ -21,13 +22,25 @@ export default defineComponent({
   data() {
     return {
       username: '',
-      password: ''
+      password: '',
+      error: false
     }
   },
   methods: {
     async sendData() {
-      const result = await postLogin({username:this.username, password:this.password})
-      console.log(result)
+      postLogin({username:this.username, password:this.password})
+          .then(value => {
+            this.$store.commit('updateUserLocalStorage', {
+              accessToken: value.data.access,
+              refreshToken: value.data.refresh,
+              username: this.username,
+            });
+            this.$router.push({name:'homepage'})
+          })
+          .catch(_ => {
+            this.error = true;
+          })
+
     }
   }
 })
