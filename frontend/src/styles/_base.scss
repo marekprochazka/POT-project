@@ -1,4 +1,9 @@
 body {
   background-image: url("~@/assets/background.svg");
   background-size:cover ;
+
+  h1{
+    font-size: $font--large;
+    color: $color--light-blue;
+  }
 }

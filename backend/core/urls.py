@@ -3,7 +3,7 @@ from core.api.sign_in import SignInView
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 from core.api.plan import PlansListView
 
-app_name = 'core'
+app_name = 'core_api'
 
 urlpatterns = [
     path('login', TokenObtainPairView.as_view(), name='login'),

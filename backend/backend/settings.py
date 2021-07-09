@@ -42,6 +42,7 @@ INSTALLED_APPS = [
 
     'rest_framework',
     'rest_framework_simplejwt.token_blacklist',
+    'django_js_reverse'
 
 ]
 
@@ -158,3 +159,6 @@ REST_FRAMEWORK = {
     ]
 
 }
+
+JS_REVERSE_OUTPUT_PATH = os.path.join(BASE_DIR, '../frontend/src/dj-reverse')
+JS_REVERSE_JS_GLOBAL_OBJECT_NAME = 'window'
