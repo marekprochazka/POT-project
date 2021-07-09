@@ -9,3 +9,6 @@ class Person(models.Model):
     def create_person_from_user(user: User):
         person = Person(user=user)
         person.save()
+
+    def __str__(self):
+        return str(self.user.username)

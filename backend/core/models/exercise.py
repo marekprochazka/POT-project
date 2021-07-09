@@ -1,7 +1,11 @@
 from django.db import models
-from .training import Training
+from .overload_type import OverloadType
 
 
 class Exercise(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
-    training = models.ManyToManyField(Training)
+    overload_type = models.ForeignKey(OverloadType, on_delete=models.CASCADE, null=True)
+    name = models.CharField(max_length=255, null=False, blank=False, default='Exercise')
+
+    def __str__(self):
+        return str(self.name)
