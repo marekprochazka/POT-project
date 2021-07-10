@@ -2,7 +2,7 @@ from django.urls import path
 from core.api.sign_in import SignInView
 from core.api.logout import LogoutView
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
-from core.api.plan import PlansListView
+from core.api.plan import PlansListView, PlanCreateView
 
 app_name = 'core_api'
 
@@ -10,6 +10,7 @@ urlpatterns = [
     path('login', TokenObtainPairView.as_view(), name='login'),
     path('refresh-token', TokenRefreshView.as_view(), name='refresh_token'),
     path('sign-in', SignInView.as_view(), name='sing_in'),
-    path('plans-list', PlansListView.as_view(), name='plan_list'),
-    path('logout', LogoutView.as_view(), name='logout')
+    path('plan/list', PlansListView.as_view(), name='plan_list'),
+    path('logout', LogoutView.as_view(), name='logout'),
+    path('plan/create', PlanCreateView.as_view(), name='plan_create')
 ]

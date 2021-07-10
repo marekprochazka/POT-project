@@ -30,6 +30,8 @@ export default defineComponent({
     async sendData() {
       postLogin({username:this.username, password:this.password})
           .then(value => {
+            console.log('access in login')
+            console.log(value.data.access)
             this.$store.commit('updateUserLocalStorage', {
               accessToken: value.data.access,
               refreshToken: value.data.refresh,
