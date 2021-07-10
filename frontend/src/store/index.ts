@@ -5,10 +5,12 @@ import axios from "axios";
 
 export default createStore({
   state: {
+    // USER
     accessToken: localStorage.getItem('access_token') || null,
     refreshToken: localStorage.getItem('refresh_token') || null,
     username: localStorage.getItem('username') || null,
-
+    // navbar
+    isNavOpen: false
   },
   mutations: {
     updateUserLocalStorage(state, data:ILoginData) {
@@ -22,6 +24,10 @@ export default createStore({
     updateAccess(state, access){
       state.accessToken = access
       localStorage.setItem('access_token',access)
+    },
+    toggleNavState(state) {
+      console.log('toggle')
+      state.isNavOpen = !state.isNavOpen
     }
   },
   actions: {

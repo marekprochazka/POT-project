@@ -7,3 +7,10 @@ body {
     color: $color--light-blue;
   }
 }
+
+.nav_button__container{
+  position: absolute;
+  bottom: 15px;
+  left: 15px;
+  z-index: 100000000000; //just to be sure
+}
