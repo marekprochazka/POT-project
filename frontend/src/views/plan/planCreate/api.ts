@@ -1,9 +1,9 @@
-import { IPlanCreate, URLS } from '../config'
-import axios from "axios";
+import {IPlanCreate, URLS} from '../config'
 import reverse from "django-reverse"
-import {apiHeaders} from "@/api/config";
 import {axiosBase} from "@/api/axiosBase";
+import store from "@/store"
 
-export const postPlanCreate = async (data:IPlanCreate): Promise<unknown> => {
-    return await axiosBase.post(reverse(URLS.PLANCREATE), JSON.stringify(data), )
+export const postPlanCreate = async (data: IPlanCreate): Promise<unknown> => {
+    console.log(store.state.accessToken)
+    return await axiosBase.post(reverse(URLS.PLANCREATE), JSON.stringify(data))
 }

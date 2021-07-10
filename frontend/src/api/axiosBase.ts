@@ -3,8 +3,7 @@ import store from '../store'
 import {apiHeaders} from "./config";
 
 const axiosBase = axios.create({
-    headers: { 'Content-Type': 'application/json;charset=UTF-8',
-        'Authorization': `Bearer ${store.getters.getAccessToken}`}
+    ...apiHeaders
 })
 
 axiosBase.interceptors.response.use(undefined, (err) => {

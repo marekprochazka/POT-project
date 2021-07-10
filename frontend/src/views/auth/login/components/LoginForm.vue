@@ -37,6 +37,7 @@ export default defineComponent({
               refreshToken: value.data.refresh,
               username: this.username,
             });
+            this.$router.go()
             this.$router.push({name:'homepage'})
           })
           .catch(_ => {
