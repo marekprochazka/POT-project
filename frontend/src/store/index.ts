@@ -26,7 +26,6 @@ export default createStore({
       localStorage.setItem('access_token',access)
     },
     toggleNavState(state) {
-      console.log('toggle')
       state.isNavOpen = !state.isNavOpen
     }
   },

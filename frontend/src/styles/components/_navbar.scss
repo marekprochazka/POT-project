@@ -1,19 +1,30 @@
-.navBar__transition{
+.navBar__transition {
   &-enter-active, &-leave-active {
     transition: all 1s;
   }
-  &-enter-from,&-leave-to{
+
+  &-enter-from, &-leave-to {
     transform: translateX(-100%);
     opacity: 0;
   }
 }
 
-.navBar__container{
-  position:absolute;
-  top:0;
+.navBar__container {
+  position: absolute;
+  top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   background-color: black;
   z-index: 1000000;
+
+  .navBar__list {
+    text-align: left;
+    margin-left: 25px;
+    font-size: $font--xlarge;
+    list-style-type: none !important;
+    li{
+      margin-top: 30px;
+    }
+  }
 }
