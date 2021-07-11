@@ -1,11 +1,12 @@
 from rest_framework import serializers
 from core.models.plan import Plan
-
+from .training import TrainingSerializerLite
 
 class PlanSerializer(serializers.ModelSerializer):
+    trainings = TrainingSerializerLite(read_only=True, many=True)
     class Meta:
         model = Plan
-        fields = '__all__'
+        fields = ['id', 'name', 'trainings']
 
 
 class PlanCreateSerializer(serializers.ModelSerializer):
