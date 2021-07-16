@@ -1,0 +1,5 @@
+export const MUTATION_TYPES = {
+    USER_SET: 'USER::SET',
+    ACCESS_SET: 'ACCESS::SET',
+    NAV_TOGGLE: 'NAV::TOGGLE'
+}

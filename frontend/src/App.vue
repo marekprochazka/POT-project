@@ -8,12 +8,13 @@
 import {defineComponent} from "vue";
 import NavButton from "@/views/utils/nav/NavButton";
 import Navbar from "@/views/utils/nav/Navbar";
+import {MUTATION_TYPES as MT} from "@/store/_mutation-types";
 
 export default defineComponent({
   name: 'root',
   methods: {
     toggleNav() {
-      this.$store.commit('toggleNavState')
+      this.$store.commit(MT.NAV_TOGGLE)
     }
   },
   components: {

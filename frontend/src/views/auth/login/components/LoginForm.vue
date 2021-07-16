@@ -16,6 +16,7 @@
 <script>
 import {defineComponent} from "vue";
 import {postLogin} from "../api";
+import {MUTATION_TYPES as MT} from "@/store/_mutation-types";
 
 export default defineComponent({
   name: 'vue-loginForm',
@@ -32,7 +33,7 @@ export default defineComponent({
           .then(value => {
             console.log('access in login')
             console.log(value.data.access)
-            this.$store.commit('updateUserLocalStorage', {
+            this.$store.commit(MT.USER_SET, {
               accessToken: value.data.access,
               refreshToken: value.data.refresh,
               username: this.username,

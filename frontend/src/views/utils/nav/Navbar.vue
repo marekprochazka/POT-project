@@ -14,6 +14,7 @@
 
 <script>
 import {defineComponent} from "vue";
+import {MUTATION_TYPES as MT} from "@/store/_mutation-types";
 
 export default defineComponent({
   name: 'navbar',
@@ -28,7 +29,7 @@ export default defineComponent({
   methods: {
     handleLinkClick(urlName) {
       this.$router.push({name: urlName})
-      this.$store.commit('toggleNavState')
+      this.$store.commit(MT.NAV_TOGGLE)
     }
   }
 
