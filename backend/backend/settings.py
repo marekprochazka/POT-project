@@ -42,7 +42,8 @@ INSTALLED_APPS = [
 
     'rest_framework',
     'rest_framework_simplejwt.token_blacklist',
-    'django_js_reverse'
+    'django_js_reverse',
+    'drf_yasg'
 
 ]
 
@@ -162,3 +163,10 @@ REST_FRAMEWORK = {
 
 JS_REVERSE_OUTPUT_PATH = os.path.join(BASE_DIR, '../frontend/src/dj-reverse')
 JS_REVERSE_JS_GLOBAL_OBJECT_NAME = 'window'
+
+from datetime import timedelta
+
+
+SIMPLE_JWT = {
+    'ACCESS_TOKEN_LIFETIME': timedelta(days=7)
+}
