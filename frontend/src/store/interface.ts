@@ -10,3 +10,8 @@ export interface IState {
     username: string | null,
     isNavOpen: boolean
 }
+
+export interface ILoginActionData {
+    username: string,
+    password: string
+}

@@ -1,7 +1,7 @@
 import store from '../store'
 
 export const apiHeaders = {
-    headers: {'Content-Type': 'application/json;charset=UTF-8', 'Authorization': 'Bearer ' + store.state.accessToken}
+    headers: {'Content-Type': 'application/json;charset=UTF-8'}
 }
 
 // export const apiHeaders = {
