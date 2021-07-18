@@ -6,6 +6,8 @@ import store from './store'
 import "bootstrap/dist/css/bootstrap.css"
 import "./dj-reverse/reverse"
 
+import './styles/_entry.scss'
+
 router.beforeEach((to, from, next) => {
     if (to.matched.some(record => record.meta.loginRequired)) {
         if (!store.getters.isLoggedIn) {
