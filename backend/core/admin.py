@@ -1,5 +1,7 @@
 from django.contrib import admin
 from core.models import Person, Plan, ActiveExercise, Exercise, OverloadType, Training
+from rest_framework_simplejwt.token_blacklist.admin import OutstandingTokenAdmin as ImpOutsdatingTokenAdmin
+from rest_framework_simplejwt.token_blacklist.admin import OutstandingToken
 
 
 # Register your models here.
@@ -26,6 +28,15 @@ class OverloadTypeAdmin(admin.ModelAdmin):
 class TrainingAdmin(admin.ModelAdmin):
     pass
 
+
+# Edited token admin, default one caused inability to delete user
+class OutstandingTokenAdmin(ImpOutsdatingTokenAdmin):
+    def has_delete_permission(self, *args, **kwargs):
+        return True
+
+
+admin.site.unregister(OutstandingToken)
+admin.site.register(OutstandingToken, OutstandingTokenAdmin)
 
 admin.site.register(Person, PersonAdmin)
 admin.site.register(Plan, PlanAdmin)
