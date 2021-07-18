@@ -7,12 +7,10 @@ const axiosBase = axios.create({
 
 axiosBase.interceptors.response.use(undefined, (err) => {
     if (err.config && err.response && err.response.status === 401) {
-
         router.push({name: 'login'}) // TODO msg timeout
         // TODO logout action
-
-
     }
+    return Promise.reject(err)
 })
 
 export {axiosBase}

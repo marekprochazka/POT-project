@@ -13,3 +13,10 @@ export interface ILoginActionData {
     username: string,
     password: string
 }
+
+export interface ISignInData {
+    username: string,
+    fullname: string,
+    password: string,
+    confirm: string
+}
