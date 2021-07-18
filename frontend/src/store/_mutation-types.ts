@@ -1,5 +1,5 @@
 export const MUTATION_TYPES = {
     USER_SET: 'USER::SET',
-    ACCESS_SET: 'ACCESS::SET',
+    USER_REMOVE: 'USER::REMOVE',
     NAV_TOGGLE: 'NAV::TOGGLE'
 }

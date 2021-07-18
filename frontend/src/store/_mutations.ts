@@ -9,11 +9,14 @@ export default {
         state.accessToken = data.accessToken
         state.username = data.username
     },
-    [MT.ACCESS_SET](state: IState, access: string): void {
-        state.accessToken = access
-        localStorage.setItem('access_token', access)
-    },
     [MT.NAV_TOGGLE](state: IState): void {
         state.isNavOpen = !state.isNavOpen
+    },
+    [MT.USER_REMOVE](state: IState): void {
+        localStorage.removeItem('access_token')
+        localStorage.removeItem('username')
+        state.accessToken = null
+        state.username = null
+
     }
 }

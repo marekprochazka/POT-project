@@ -1,3 +1,4 @@
 export const ACTION_TYPES = {
-    login: 'LOGIN'
+    login: 'LOGIN',
+    logout: 'LOGOUT'
 }

@@ -21,5 +21,8 @@ export default {
                     resolve('resolved')
                 }).catch(err => reject(err))
         })
+    },
+    [AT.logout](context:any): void {
+        context.commit(MT.USER_REMOVE)
     }
 }
