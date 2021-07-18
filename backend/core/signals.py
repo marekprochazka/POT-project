@@ -6,5 +6,7 @@ from django.contrib.auth.models import User
 
 @receiver(post_save, sender=User)
 def create_person_action(sender, instance, created, **kwargs):
-    if not Person.objects.get(user=instance):
+    try:
+        Person.objects.get(user=instance)
+    except Person.DoesNotExist:
         Person.create_person_from_user(instance)

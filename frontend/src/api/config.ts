@@ -1,9 +1,12 @@
 import store from '../store'
 
-export const authHeaders =() => {
-    {
-          return {'Authorization': 'Bearer ' + store.state.accessToken}
+interface IAuthHeader {
+    Authorization:string
+}
 
+export const authHeaders = ():IAuthHeader  => {
+    {
+        return {'Authorization': 'Bearer ' + store.state.accessToken}
     }
 }
 
