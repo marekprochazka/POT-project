@@ -8,23 +8,6 @@ import router from "@/router";
 /* eslint-disable */
 
 export default {
-    [AT.refreshToken](context: any): Promise<any> {
-        return new Promise((resolve, reject) => {
-            axios.post(reverse('core_api:refresh_token'), {
-                refresh: context.state.refreshToken
-            })
-                .then(response => {
-                    console.log('token update')
-                    console.log(response.data.access)
-                    context.commit(MT.ACCESS_SET, response.data.access)
-                    resolve(response.data.access)
-                })
-                .catch(err => {
-                    console.log('error while token update')
-                    reject(err)
-                })
-        })
-    },
     [AT.login](context: any, data: ILoginActionData): Promise<any> {
         return new Promise((resolve, reject) => {
             axios.post(reverse(URLS.LOGIN), JSON.stringify(data), {headers: {'Content-Type': 'application/json;charset=UTF-8'}})

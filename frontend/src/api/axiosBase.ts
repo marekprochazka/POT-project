@@ -1,23 +1,18 @@
 import axios from "axios";
 import store from '../store'
-import {apiHeaders} from "./config";
 import {ACTION_TYPES as AT} from "@/store/_action-types";
+import router from "@/router";
 
 const axiosBase = axios.create({
-    ...apiHeaders
+    headers: {'Content-Type': 'application/json;charset=UTF-8'}
 })
 
 axiosBase.interceptors.response.use(undefined, (err) => {
     if (err.config && err.response && err.response.status === 401) {
         store.dispatch(AT.refreshToken)
-            .then(access =>{
-                err._retry = true
-                console.log('err')
-                console.log(err)
-                console.log('access')
-                console.log(access)
-                err.config.headers = {...apiHeaders}
-                return axios.request(err.config)
+            .then(() =>{
+                router.push({name:'login'}) // TODO msg timeout
+                // TODO logout action
             })
             .catch((err) => {
                 console.log(err)
