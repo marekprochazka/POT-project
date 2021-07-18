@@ -3,6 +3,7 @@ import reverse from "django-reverse"
 import {axiosBase} from "@/api/axiosBase";
 import {authHeaders} from "@/api/config";
 
-export const postPlanCreate = async (data: IPlanCreate): Promise<unknown> => {
+// TODO response interface
+export const postPlanCreate = async (data: IPlanCreate): Promise<any> => {
     return await axiosBase.post(reverse(URLS.PLANCREATE), JSON.stringify(data),{headers: {...authHeaders()}})
 }
