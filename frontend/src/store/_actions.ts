@@ -14,7 +14,7 @@ export default {
                 .then(value => {
                     context.commit(MT.USER_SET, {
                         accessToken: value.data.access,
-                        refreshToken: value.data.refresh,
+                        // refreshToken: value.data.refresh,
                         username: data.username
                     })
                     router.push({name: 'homepage'})
