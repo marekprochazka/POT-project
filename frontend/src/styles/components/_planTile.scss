@@ -1,0 +1,60 @@
+.planTile__container {
+  border: $pot--border;
+  width: 80%;
+  height: 100px;
+  margin-right: auto;
+  margin-left: auto;
+  margin-bottom: 25px;
+
+  .planTile__menuSwitch-fade-in, .planTile__menuSwitch-fade-out{
+    &-enter-active {
+    transition: all 1s;
+  }
+    &-enter-from {
+    opacity: 0;
+  }
+  }
+
+  .planTile__innerItemsContainer {
+    position: relative;
+    padding: 5px;
+    height: 100%;
+
+    .planTile__title {
+      color: $color--light-blue;
+      font-size: $font--normal;
+    }
+
+    .planTile__trainingSnippet {
+      color: $color--light-gray;
+      font-size: $font--normal;
+    }
+
+    .planTile__icon-menu {
+      position: absolute;
+      top: 5px;
+      right: 5px;
+    }
+
+    .planTile__icon-add {
+      position: absolute;
+      bottom: 5px;
+      right: 5px;
+    }
+  }
+
+  .planTile__innerMenuContainer {
+    position: relative;
+    //padding: 5px;
+    height: 100%;
+    width: 100%;
+    background-color: $color--black;
+
+    .planTile__icon-menu {
+      position: absolute;
+      top: 5px;
+      right: 5px;
+    }
+  }
+
+}

@@ -25,7 +25,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [os.environ.get('ALLOWED_HOSTS')]
 
 
 # Application definition
@@ -37,6 +37,15 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
+
+    'core.apps.CoreConfig',
+    'tracker.apps.TrackerConfig',
+
+    'rest_framework',
+    'rest_framework_simplejwt.token_blacklist',
+    'django_js_reverse',
+    'drf_yasg'
 
 ]
 
@@ -44,13 +53,15 @@ MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
+    # 'django.middleware.csrf.CsrfViewMiddleware',
+    # removed csrf protection for at least now
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
 ROOT_URLCONF = 'backend.urls'
+
 
 TEMPLATES = [
     {
@@ -74,6 +85,7 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 if os.environ.get('DEV'):
+
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.mysql',
@@ -84,6 +96,7 @@ if os.environ.get('DEV'):
             'PORT': os.environ.get('DB_PORT'),
         }
     }
+
 else:
     DATABASES = {
         'default': {
@@ -140,3 +153,23 @@ STATICFILES_DIRS = [
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+REST_FRAMEWORK = {
+
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    ]
+
+}
+
+JS_REVERSE_OUTPUT_PATH = os.path.join(BASE_DIR, '../frontend/src/dj-reverse')
+JS_REVERSE_JS_GLOBAL_OBJECT_NAME = 'window'
+
+from datetime import timedelta
+
+
+SIMPLE_JWT = {
+    'ACCESS_TOKEN_LIFETIME': timedelta(days=7)
+}
+
+SITE_ID=1

@@ -1,0 +1,33 @@
+.form__container{
+    .form__group{
+      max-width: 300px;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      .form__text{
+        color: $color--light-blue;
+      }
+      .form__input{
+        border: $pot--border;
+        background-color: transparent !important;
+        color: $color--light-blue;
+        &::placeholder{
+          color: $color--light-blue !important;
+          opacity: .5;
+        }
+      }
+    }
+  .form__button{
+    background-color: transparent;
+    color: $color--light-blue;
+    border: $pot--border;
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+    width: 100%;
+    max-width: 300px;
+  }
+  .form__error{
+    color: red;
+  }
+  }
