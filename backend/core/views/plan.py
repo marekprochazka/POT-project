@@ -1,5 +1,8 @@
-from rest_framework.generics import ListAPIView, RetrieveAPIView, CreateAPIView
+from rest_framework.generics import ListAPIView, RetrieveAPIView, CreateAPIView, DestroyAPIView
+from rest_framework.response import Response
+from rest_framework.views import APIView
 from rest_framework.viewsets import ModelViewSet
+from rest_framework import status
 
 from core.models import Person
 from core.models.plan import Plan
@@ -28,3 +31,13 @@ class PlanCreateView(CreateAPIView):
 
     def perform_create(self, serializer):
         serializer.save(person=Person.objects.get(user=self.request.user))
+
+
+class PlanDeleteView(APIView):
+    def delete(self, request, plan_id):
+        try:
+            plan = Plan.objects.get(id=plan_id)
+            plan.delete()
+            return Response(status=status.HTTP_200_OK)
+        except Plan.DoesNotExist:
+            return Response(status=status.HTTP_404_NOT_FOUND)
