@@ -1,7 +1,7 @@
 from rest_framework import serializers
 
-from core.models import Training
-from core.serializers.exercise import ExerciseSerializerLite
+from tracker.models import Training
+from tracker.serializers.exercise import ExerciseSerializerLite
 
 
 class TrainingSerializer(serializers.ModelSerializer):

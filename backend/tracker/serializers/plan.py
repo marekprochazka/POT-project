@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from core.models.plan import Plan
+from tracker.models.plan import Plan
 from .training import TrainingSerializerLite, TrainingSerializer
 
 

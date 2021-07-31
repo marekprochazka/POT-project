@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.sites',
 
     'core.apps.CoreConfig',
+    'tracker.apps.TrackerConfig',
 
     'rest_framework',
     'rest_framework_simplejwt.token_blacklist',

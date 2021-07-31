@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from core.models import ActiveExercise
+from tracker.models import ActiveExercise
 
 
 class ExerciseSerializerLite(serializers.ModelSerializer):
@@ -11,4 +11,4 @@ class ExerciseSerializerLite(serializers.ModelSerializer):
 
     class Meta:
         model = ActiveExercise
-        fields = ['name', 'overload_value']
+        fields = ['name', 'last_overload_value', 'overload_history']

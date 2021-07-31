@@ -2,7 +2,7 @@ from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
-from core.models import Plan, Training
+from tracker.models import Plan, Training
 
 
 class TrainingCreateView(APIView):

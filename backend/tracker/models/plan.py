@@ -1,5 +1,5 @@
 from django.db import models
-from .person import Person
+from core.models.person import Person
 
 
 class Plan(models.Model):

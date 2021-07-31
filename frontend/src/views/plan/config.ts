@@ -3,5 +3,5 @@ export interface IPlanCreate {
 }
 
 export const URLS = {
-    PLANCREATE: 'core_api:plan_create'
+    PLANCREATE: 'tracker_api:plan_create'
 }
