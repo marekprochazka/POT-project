@@ -1,8 +1,8 @@
 from django.urls import path
-from core.api.sign_in import SignInView
-from core.api.logout import LogoutView
+from core.views.sign_in import SignInView
+from core.views.logout import LogoutView
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
-from core.api.plan import PlansListView, PlanCreateView
+from core.views.plan import PlansListView, PlanCreateView
 
 app_name = 'core_api'
 
