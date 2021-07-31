@@ -10,4 +10,4 @@ class ActiveExercise(models.Model):
     overload_value = models.IntegerField()
 
     def __str__(self):
-        return str(self.exercise.name)
+        return f'{str(self.exercise.name)} | {str(self.training.name)}'

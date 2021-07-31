@@ -3,12 +3,12 @@ from rest_framework.viewsets import ModelViewSet
 
 from core.models import Person
 from core.models.plan import Plan
-from core.serializers.plan import PlanSerializer, PlanCreateSerializer
+from core.serializers.plan import PlanSerializerLite, PlanCreateSerializer, PlanSerializer
 from rest_framework.permissions import IsAuthenticated
 
 
 class PlansListView(ListAPIView):
-    serializer_class = PlanSerializer
+    serializer_class = PlanSerializerLite
     model = Plan
     permission_classes = (IsAuthenticated,)
 
@@ -17,7 +17,9 @@ class PlansListView(ListAPIView):
 
 
 class PlanDetailView(RetrieveAPIView):
-    pass
+    lookup_url_kwarg = 'plan_id'
+    serializer_class = PlanSerializer
+    queryset = Plan.objects.all()
 
 
 class PlanCreateView(CreateAPIView):
