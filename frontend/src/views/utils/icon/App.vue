@@ -3,11 +3,11 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue';
+import {defineComponent} from 'vue';
 
 export default defineComponent({
-  name:'vue-icon',
-  props:{iconType:{type:String, required:true}},
+  name: 'vue-icon',
+  props: {iconType: {type: String, required: true}},
   computed: {
     iconRoute(): string {
       return require(`@/assets/icons/${this.iconType}.svg`)
