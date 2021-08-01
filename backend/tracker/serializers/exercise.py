@@ -3,7 +3,7 @@ from rest_framework import serializers
 from tracker.models import ActiveExercise
 
 
-class ExerciseSerializerLite(serializers.ModelSerializer):
+class ActiveExerciseSerializerLite(serializers.ModelSerializer):
     name = serializers.SerializerMethodField()
 
     def get_name(self, instance):
