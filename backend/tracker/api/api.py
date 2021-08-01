@@ -1,7 +1,7 @@
 from django.urls import path
 
 from tracker.views.plan import PlansListView, PlanCreateView, PlanDeleteView, PlanDetailView
-from tracker.views.training import TrainingCreateView
+from tracker.views.training import TrainingCreateView, TrainingView
 
 app_name = 'tracker_api'
 
@@ -11,6 +11,7 @@ urlpatterns = [
     path('plan/delete/<str:plan_id>', PlanDeleteView.as_view(), name='plan_delete'),
     path('plan/detail/<str:plan_id>', PlanDetailView.as_view(), name='plan_detail'),
 
-    path('training/create/<str:plan_id>', TrainingCreateView.as_view(), name='training_create')
+    path('training/create/<str:plan_id>', TrainingCreateView.as_view(), name='training_create'),
+    path('training/<str:training_id>', TrainingView.as_view(), name='training')
 
 ]

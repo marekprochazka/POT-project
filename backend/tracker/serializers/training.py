@@ -1,7 +1,7 @@
 from rest_framework import serializers
 
 from tracker.models import Training
-from tracker.serializers.exercise import ActiveExerciseSerializerLite
+from tracker.serializers.exercise import ActiveExerciseSerializerLite, ExerciseCreateSerializer
 
 
 class TrainingSerializer(serializers.ModelSerializer):
@@ -18,9 +18,7 @@ class TrainingSerializerLite(serializers.ModelSerializer):
         fields = ['name']
 
 
-class ExerciseCreateSerializer(serializers.Serializer):
-    exercise_name = serializers.CharField(max_length=255)
-    overload_type = serializers.CharField(max_length=255)
+
 
 
 class TrainingCreateSerializer(serializers.Serializer):
