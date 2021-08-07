@@ -2,9 +2,13 @@
   <div class="trainingTile__container">
     <div class="trainingTile__header">
       <h3>{{ training.name }}</h3>
-      <vue-icon class="trainingTile__menuIcon" iconType="hamburger-small" />
+      <vue-icon
+          class="trainingTile__menuIcon"
+          iconType="hamburger-small"
+          @click="unwrapped = !unwrapped"
+      />
     </div>
-    <div class="trainingTile__body">
+    <div v-if="unwrapped" class="trainingTile__body">
       <table>
         <thead>
         <tr>
@@ -36,6 +40,11 @@ export default defineComponent({
   name: 'trainingTile',
   props: {
     training: {required: true, type: Object as () => ITraining}
+  },
+  data() {
+    return{
+      unwrapped: false
+    }
   }
 })
 
