@@ -4,6 +4,7 @@
     <div class="planDetail__trainings">
         <TrainingTile class="mb-20" v-for="training in responseData.trainings" :key="training.id" :training="training"/>
     </div>
+    <vue-icon class="planDetail__settingIcon" iconType="wheel-big" />
   </div>
 
 </template>

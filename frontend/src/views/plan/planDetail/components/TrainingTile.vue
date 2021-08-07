@@ -2,6 +2,7 @@
   <div class="trainingTile__container">
     <div class="trainingTile__header">
       <h3>{{ training.name }}</h3>
+      <vue-icon class="trainingTile__menuIcon" iconType="hamburger-small" />
     </div>
     <div class="trainingTile__body">
       <table>
@@ -18,7 +19,7 @@
           <td>{{ exercise.name }}</td>
           <td>{{ exercise.volume }}</td>
           <td>{{ exercise.last_overload_value }}</td>
-          <td>BUT</td>
+          <td><vue-icon class="trainingTile__addIcon" iconType="add-small" /></td>
         </tr>
         </tbody>
       </table>
