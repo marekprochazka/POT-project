@@ -5,9 +5,9 @@ from django.db import transaction
 
 
 @transaction.atomic
-def create_exercise_and_add_it_to_training(training, exercise_name, overload_type):
+def create_exercise_and_add_it_to_training(training, exercise_name, overload_type, volume):
     exercise = Exercise.objects.create(name=exercise_name,
                                        overload_type=OverloadType.objects.get(type_identifier=overload_type))
     exercise.save()
-    active_exercise = ActiveExercise.objects.create(training=training,exercise=exercise)
+    active_exercise = ActiveExercise.objects.create(training=training, exercise=exercise, volume=volume)
     active_exercise.save()

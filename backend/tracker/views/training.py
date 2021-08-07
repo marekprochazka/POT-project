@@ -23,7 +23,8 @@ class TrainingCreateView(APIView):
             training.save()
             for exercise in data.get('exercises'):
                 create_exercise_and_add_it_to_training(training, exercise.get('exercise_name'),
-                                                       exercise.get('overload_type'))
+                                                       exercise.get('overload_type'),
+                                                       exercise.get('volume'))
 
             return Response(status=status.HTTP_201_CREATED)
         return Response(status=status.HTTP_400_BAD_REQUEST)

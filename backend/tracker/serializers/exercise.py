@@ -11,12 +11,13 @@ class ActiveExerciseSerializerLite(serializers.ModelSerializer):
 
     class Meta:
         model = ActiveExercise
-        fields = ['name', 'last_overload_value', 'overload_history', 'volume']
+        fields = ['id', 'name', 'last_overload_value', 'overload_history', 'volume']
 
 
 class ExerciseCreateSerializer(serializers.Serializer):
     exercise_name = serializers.CharField(max_length=255)
     overload_type = serializers.CharField(max_length=255)
+    volume = serializers.CharField(max_length=128)
 
 
 class ActiveExerciseUpdateSerializer(serializers.Serializer):
