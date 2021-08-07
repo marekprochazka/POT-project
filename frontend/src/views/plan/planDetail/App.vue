@@ -14,6 +14,7 @@ import {fetchPlanDetail} from "@/views/plan/planDetail/api";
 import {emptyPlan} from "@/views/plan/config";
 import TrainingTile from "./components/TrainingTile.vue";
 
+
 export default defineComponent({
   name: 'planDetail',
   data() {

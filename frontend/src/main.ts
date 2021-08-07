@@ -2,6 +2,7 @@ import {createApp} from 'vue'
 import App from './App.vue'
 import router from './router'
 import store from './store'
+import Icon from './views/utils/icon/App.vue'
 
 import "bootstrap/dist/css/bootstrap.css"
 import "./dj-reverse/reverse"
@@ -26,4 +27,5 @@ router.beforeEach((to, from, next) => {
     }
 })
 
-createApp(App).use(store).use(router).mount('#app')
+
+createApp(App).component('vue-icon', Icon).use(store).use(router).mount('#app')

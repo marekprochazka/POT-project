@@ -6,7 +6,7 @@
 import {defineComponent} from 'vue';
 
 export default defineComponent({
-  name: 'vue-icon',
+  name: 'my-icon',
   props: {iconType: {type: String, required: true}},
   computed: {
     iconRoute(): string {

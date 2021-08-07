@@ -1,10 +1,9 @@
 <template>
-      <Icon :icon-type="navIcon"></Icon>
+      <vue-icon :icon-type="navIcon"></vue-icon>
 </template>
 
 <script>
 import {defineComponent} from "vue";
-import Icon from '@/views/utils/icon/App.vue'
 import store from '@/store'
 
 export default defineComponent({
@@ -17,8 +16,7 @@ export default defineComponent({
       }
       return 'menu-2'
     }
-  },
-  components: {Icon}
+  }
 })
 
 </script>
