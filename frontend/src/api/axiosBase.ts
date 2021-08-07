@@ -1,8 +1,11 @@
 import axios from "axios";
 import router from "@/router";
+import {authHeaders} from "@/api/config";
 
 const axiosBase = axios.create({
-    headers: {'Content-Type': 'application/json;charset=UTF-8'}
+    headers: {
+        'Content-Type': 'application/json;charset=UTF-8'
+    }
 })
 
 axiosBase.interceptors.response.use(undefined, (err) => {

@@ -25,7 +25,7 @@ const routes: Array<RouteRecordRaw> = [
     }
   },
   {
-    path:'plan/detail/:id',
+    path:'/plan/detail/:id',
     name:'planDetail',
     component: planDetail,
     meta: {

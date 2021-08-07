@@ -1,14 +1,21 @@
+html, body, #app {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+
 body {
   background-image: url("~@/assets/background.svg");
-  background-size:cover ;
+  background-size: cover;
 
-  h1{
+  h1 {
     font-size: $font--large;
     color: $color--light-blue;
   }
 }
 
-.nav_button__container{
+.nav_button__container {
   position: absolute;
   bottom: 15px;
   left: 15px;
