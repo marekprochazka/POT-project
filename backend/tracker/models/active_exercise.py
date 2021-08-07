@@ -9,6 +9,7 @@ class ActiveExercise(models.Model):
     exercise = models.ForeignKey(Exercise, on_delete=models.PROTECT)
     last_overload_value = models.IntegerField(default=0)
     overload_history = models.CharField(max_length=512, default='0;')
+    volume = models.CharField(max_length=128)
 
     def __str__(self):
         return f'{str(self.exercise.name)} | {str(self.training.name)}'

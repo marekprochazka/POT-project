@@ -11,7 +11,7 @@ class ActiveExerciseSerializerLite(serializers.ModelSerializer):
 
     class Meta:
         model = ActiveExercise
-        fields = ['name', 'last_overload_value', 'overload_history']
+        fields = ['name', 'last_overload_value', 'overload_history', 'volume']
 
 
 class ExerciseCreateSerializer(serializers.Serializer):
