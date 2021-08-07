@@ -1,5 +1,6 @@
 .planDetail__container {
   height: 100%;
+
   .planDetail__title {
     text-align: center;
     font-size: 35px;
@@ -10,13 +11,36 @@
   .planDetail__trainings {
     max-height: 70%;
     overflow: scroll;
-    .trainingTile__container {
+
+    .addTrainingTile__container, .trainingTile__container {
       border: $pot--border;
       width: 90%;
       display: block;
       margin-left: auto;
       margin-right: auto;
+    }
 
+    .addTrainingTile__container {
+      border-color: $color--light-gray !important;
+      height: 50px;
+      color: $color--light-gray;
+      text-align: center;
+      font-size: 20px;
+      position: relative;
+
+      .addTrainingTile__text {
+        padding-top: 6px;
+      }
+
+      .addTrainingTile__icon {
+        position: absolute;
+        right: 3px;
+        top: 6px;
+      }
+    }
+
+
+    .trainingTile__container {
       .trainingTile__header {
         border-bottom: $pot--border;
         height: 50px;
@@ -24,9 +48,11 @@
         text-align: center;
         font-size: 20px;
         position: relative;
-        h3{
+
+        h3 {
           padding-top: 6px;
         }
+
         .trainingTile__menuIcon {
           position: absolute;
           right: 5px;
@@ -60,11 +86,12 @@
               position: relative;
               border-top: 1px solid $color--light-gray;
               height: 50px;
+
               td {
                 padding-left: 15px;
                 color: $color--light-gray;
                 line-height: 30px;
-                hyphens:auto;
+                hyphens: auto;
 
               }
 
@@ -72,7 +99,8 @@
                 text-align: center;
               }
             }
-            .trainingTile__addIcon{
+
+            .trainingTile__addIcon {
               float: right;
               padding-right: 5px;
             }
@@ -83,9 +111,10 @@
       }
     }
   }
-.planDetail__settingIcon{
-  position: absolute;
-  bottom: 15px;
-  right: 15px;
-}
+
+  .planDetail__settingIcon {
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+  }
 }
