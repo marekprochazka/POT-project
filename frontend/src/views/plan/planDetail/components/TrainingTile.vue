@@ -15,7 +15,6 @@
           <th>Exercise</th>
           <th>Volume</th>
           <th>Value</th>
-          <th></th>
         </tr>
         </thead>
         <tbody>
@@ -23,7 +22,6 @@
           <td>{{ exercise.name }}</td>
           <td>{{ exercise.volume }}</td>
           <td>{{ exercise.last_overload_value }}</td>
-          <td><vue-icon class="trainingTile__addIcon" iconType="add-small" /></td>
         </tr>
         </tbody>
       </table>

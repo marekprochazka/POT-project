@@ -1,8 +1,13 @@
 <template>
   <div v-if="!loading" class="planDetail__container">
+    <vue-modal v-model="modalOpened">
+      <template v-slot:content>
+        <NewTrainingForm />
+      </template>
+    </vue-modal>
     <h1 class="planDetail__title mt-20 mb-20">{{ responseData.name }}</h1>
     <div class="planDetail__trainings">
-      <AddTrainingTile class="mb-20"/>
+      <AddTrainingTile @click="modalOpened = true" class="mb-20"/>
       <TrainingTile class="mb-20" v-for="training in responseData.trainings" :key="training.id" :training="training"/>
     </div>
     <vue-icon class="planDetail__settingIcon" iconType="wheel-big"/>
@@ -16,13 +21,15 @@ import {fetchPlanDetail} from "@/views/plan/planDetail/api";
 import {emptyPlan} from "@/views/plan/config";
 import TrainingTile from "./components/TrainingTile.vue";
 import AddTrainingTile from "./components/AddTrainingTile.vue";
+import NewTrainingForm from "./components/NewTrainingForm.vue"
 
 export default defineComponent({
   name: 'planDetail',
   data() {
     return {
       responseData: emptyPlan(),
-      loading: true
+      loading: true,
+      modalOpened: false
     }
   },
   created() {
@@ -35,7 +42,8 @@ export default defineComponent({
   },
   components: {
     TrainingTile,
-    AddTrainingTile
+    AddTrainingTile,
+    NewTrainingForm
   }
 
 })

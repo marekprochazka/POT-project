@@ -2,6 +2,11 @@ export interface IPlanCreate {
     name:string
 }
 
+export interface IPlanCreateResponse {
+    name:string,
+    plan_id:number
+}
+
 export const URLS = {
     PLANCREATE: 'tracker_api:plan_create',
     PLANDETAIL: 'tracker_api:plan_detail'

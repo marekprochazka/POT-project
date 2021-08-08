@@ -2,7 +2,11 @@
   <div class="homepage__container">
     <h1 class="homepage--title mt-20 mb-20">Progressive overload tracker</h1>
     <div v-if="plans.length > 0" class="homepage__plansContainer">
-      <PlanTile v-for="plan in plans" :key="plan.id" :plan="plan" />
+      <PlanTile
+          v-for="plan in plans"
+          :key="plan.id"
+          :plan="plan"
+          @click.prevent="$router.push({name:'planDetail',params:{id:plan.id}})"/>
     </div>
     <vue-icon @click.prevent="$router.push({name:'planCreate'})" class="homepage__plusIcon" icon-type="plus"></vue-icon>
   </div>
