@@ -3,6 +3,7 @@ import homepage from '../views/homepage/App.vue'
 import login from '../views/auth/login/App.vue'
 import sign_in from '../views/auth/sign_in/App.vue'
 import planCreate from '../views/plan/planCreate/App.vue'
+import planDetail from '../views/plan/planDetail/App.vue'
 
 const routes: Array<RouteRecordRaw> = [
     // BASIC VIEWS
@@ -19,6 +20,14 @@ const routes: Array<RouteRecordRaw> = [
     path:'/plan/create',
     name:'planCreate',
     component: planCreate,
+    meta: {
+      loginRequired: true
+    }
+  },
+  {
+    path:'/plan/detail/:id',
+    name:'planDetail',
+    component: planDetail,
     meta: {
       loginRequired: true
     }

@@ -8,6 +8,8 @@ from tracker.models.plan import Plan
 from tracker.serializers.plan import PlanSerializerLite, PlanCreateSerializer, PlanSerializer
 from rest_framework.permissions import IsAuthenticated
 
+from tracker.utils.is_owner_permission import IsPlanOwner
+
 
 class PlansListView(ListAPIView):
     serializer_class = PlanSerializerLite
@@ -22,6 +24,8 @@ class PlanDetailView(RetrieveAPIView):
     lookup_url_kwarg = 'plan_id'
     serializer_class = PlanSerializer
     queryset = Plan.objects.all()
+    permission_classes = (IsAuthenticated, IsPlanOwner)
+
 
 
 class PlanCreateView(CreateAPIView):

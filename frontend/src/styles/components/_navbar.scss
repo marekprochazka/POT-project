@@ -4,8 +4,7 @@
   }
 
   &-enter-from, &-leave-to {
-    transform: translateX(-100%);
-    opacity: 0;
+      transform: translateX(-100%);
   }
 }
 
@@ -23,7 +22,8 @@
     margin-left: 25px;
     font-size: $font--xlarge;
     list-style-type: none !important;
-    li{
+
+    li {
       margin-top: 30px;
     }
   }
