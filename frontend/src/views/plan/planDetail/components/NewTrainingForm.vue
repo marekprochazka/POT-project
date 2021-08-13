@@ -1,17 +1,20 @@
 <template>
   <h3>This is gonna be new training form...</h3>
-  <vue-text-field v-model="test" type="text" />
-  <p style="color:white;">{{test}}</p>
+  <vue-text-field v-model="test" type="text" :rules="rules"/>
+  <p style="color:white;">{{ test }}</p>
 </template>
 
-<script>
+<script lang="ts">
 import {defineComponent} from "vue";
 
 export default defineComponent({
   name: 'newTrainingForm',
   data() {
     return {
-      test: ''
+      test: '',
+      rules: [
+        (value: string) => value.length > 3 ? 'chybaa' : true,
+      ]
     }
   }
 })
