@@ -1,6 +1,6 @@
 <template>
   <div class="textField__container">
-    <input :type="type" v-model="input">
+    <input v-bind="$attrs" :type="type" v-model="input">
     <div class="textField__errors" v-if="isError">
       <p v-for="error in errorsList" :key="error" style="color:red;">{{ error }}</p>
     </div>
