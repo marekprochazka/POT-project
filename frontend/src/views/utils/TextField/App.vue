@@ -25,7 +25,7 @@ export default defineComponent({
     return {
       innerValue: this.inputValue,
       isError: false,
-      errorsList: {} as any
+      errorsList: {} as any,
     }
   },
   computed: {

@@ -1,15 +1,7 @@
 <template>
   <form @submit.prevent="sendData" class="form__container">
-    <div class="form-group mt-20 form__group">
-      <label for="loginForm__EmailInput" class="form__text">Email</label>
-      <input v-model="username" type="text" class="form-control form__input" id="loginForm__EmailInput"
-             placeholder="Email">
-    </div>
-    <div class="form-group mt-20 form__group">
-      <label for="loginForm__PasswordInput" class="form__text">Password</label>
-      <input v-model="password" type="password" class="form-control form__input" id="loginForm__PasswordInput"
-             placeholder="Password">
-    </div>
+    <vue-text-field v-model="username" type="text" label="Email" :rules="[inputRules.isValidEmail]"/>
+    <vue-text-field v-model="password" type="password" label="Password"/>
     <button type="submit" class="form__button mt-20">Login</button>
     <h3 v-if="error" class="form__error">Invalid parameters! TODO styling</h3>
   </form>
@@ -17,7 +9,7 @@
 
 <script>
 import {defineComponent} from "vue";
-
+import rules from "@/utils/rules";
 import {ACTION_TYPES as AT} from "@/store/_action-types";
 
 export default defineComponent({
@@ -26,7 +18,10 @@ export default defineComponent({
     return {
       username: '',
       password: '',
-      error: false
+      error: false,
+      inputRules: {
+        ...rules
+      }
     }
   },
   methods: {
