@@ -1,8 +1,9 @@
 <template>
-  <div class="textField__container">
-    <input v-bind="$attrs" :type="type" v-model="input">
-    <div class="textField__errors" v-if="isError">
-      <p v-for="error in errorsList" :key="error" style="color:red;">{{ error }}</p>
+  <div class="form__group form-group px-10">
+    <label v-if="title" :class="labelClasses"  :for="label">{{label}}</label>
+    <input :class="inputClasses" v-bind="$attrs" :type="type" v-model="input" :id="label" :placeholder="label">
+    <div class="form__errors" v-if="isError">
+      <p v-for="error in errorsList" :key="error" class="form__error px-10 mt-05">{{ error }}</p>
     </div>
   </div>
 
@@ -16,6 +17,8 @@ export default defineComponent({
   props: {
     inputValue: {type: String, default: ''},
     type: {required: true, type: String},
+    label: {required: true, type: String},
+    title: {required:false,type:Boolean, default:true},
     rules: {required: false, type: Array as PropType<Array<(value: string) => string | boolean>>, default: () => []}
   },
   data() {
@@ -35,6 +38,12 @@ export default defineComponent({
         this.innerValue = val
         this.$emit('input', val)
       }
+    },
+    inputClasses(): Array<string> {
+      return this.isError ? ['form__input', 'form-control', 'form__input--Error'] : ['form__input', 'form-control']
+    },
+    labelClasses(): Array<string> {
+      return this.isError ? ['form__text', 'mb-05', 'px-10', 'form__text--Error'] : ['form__text', 'mb-05', 'px-10']
     }
   },
   methods: {
